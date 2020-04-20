@@ -17,6 +17,7 @@ spec:
     spec:
       #@ if/end data.values.imagePullSecrets:
       imagePullSecrets: #@ data.values.imagePullSecrets
+      serviceAccountName: cc-api-service-account
       containers:
         - name: capi-worker
           workingDir: "/cloud_controller_ng"
