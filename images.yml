@@ -1,0 +1,31 @@
+---
+project: cloudfoundry/capi-k8s-release
+uri: https://github.com/cloudfoundry/capi-k8s-release.git
+images:
+  - name: cloudfoundry/cloud-controller-ng
+    type: pack
+    source:
+      type: remote
+      uri: https://github.com/Birdrock/cloud_controller_ng.git
+  - name: cloudfoundry/cf-api-controllers
+    type: pack
+    source:
+      type: local
+      dir: src/cf-api-controllers
+  - name: cloudfoundry/cnb:0.0.94-bionic
+    type: buildpack # Don't build buildpacks
+  - name: cloudfoundry/capi-nginx
+    type: docker
+    source:
+      type: local
+      dir: dockerfiles/nginx
+  - name: cloudfoundry/cf-api-package-image-uploader
+    type: pack
+    source:
+      type: remote
+      uri: unknown # Good example of the problem.
+  - name: oratos/statsd_exporter:v0.15.0
+    type: docker
+    source:
+      type: remote
+      uri: unknown # Good example number 2.
